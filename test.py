@@ -13,12 +13,23 @@ class Restaurant(db.Model):
     name = db.Column(db.String)
     kitchen = db.Column(db.String)
 
+class User(db.Model):
+    __tablename__ = "users"
+    uid = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String)
+
 
 db.create_all()
 
 
-db.session.add(Restaurant(name="Pelmeni", kitchen="Russian"))
-db.session.commit()
+
+
+# db.session.add(User(name=input()))
+# db.session.commit()
+
+# db.session.add(Restaurant(name="Hotdog", kitchen="American"))
+# db.session.commit()
+# restaurants = db.session.query(Restaurant).all()
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
