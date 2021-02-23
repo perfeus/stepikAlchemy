@@ -40,28 +40,28 @@ class Rate(db.Model):
 
 db.create_all()
 
-lstRes = []
-for _ in range(3):
-    restaurant = input().split(",")
-    lstRes.append(Restaurant(uid=restaurant[0], name=restaurant[1], kitchen=restaurant[2]))
-db.session.add_all(lstRes)
-db.session.commit()
-
-lstUs = []
-for _ in range(3):
-    user = input().split(",")
-    lstUs.append(User(uid=user[0], name=user[1]))
-db.session.add_all(lstUs)
-db.session.commit()
-
-lstRat = []
-for _ in range(9):
-    data = input().split(",")
-    restaurant = Restaurant.query.get(data[0])
-    user = User.query.get(data[1])
-    lstRat.append(Rate(rating=data[2], user=user, restaurant=restaurant))
-db.session.add_all(lstRat)
-db.session.commit()
+# lstRes = []
+# for _ in range(3):
+#     restaurant = input().split(",")
+#     lstRes.append(Restaurant(uid=restaurant[0], name=restaurant[1], kitchen=restaurant[2]))
+# db.session.add_all(lstRes)
+# db.session.commit()
+#
+# lstUs = []
+# for _ in range(3):
+#     user = input().split(",")
+#     lstUs.append(User(uid=user[0], name=user[1]))
+# db.session.add_all(lstUs)
+# db.session.commit()
+#
+# lstRat = []
+# for _ in range(9):
+#     data = input().split(",")
+#     restaurant = Restaurant.query.get(data[0])
+#     user = User.query.get(data[1])
+#     lstRat.append(Rate(rating=data[2], user=user, restaurant=restaurant))
+# db.session.add_all(lstRat)
+# db.session.commit()
 
 restaurants = Restaurant.query.all()
 users = User.query.all()
